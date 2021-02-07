@@ -189,8 +189,153 @@ Function createAspirant ($data)
     $years = 2015..2020
     foreach ($year in $years)
     {
-
+        # п.1. ООП
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/РПД "+$data.profile+" "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/РПП "+$data.profile+" "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/методические материалы"+$data.profile+" "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/иные материалы"+$data.profile+" "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п.3. расписания
+        $tdir = $dirprefix+"/п3 Расписания/"+$data.profile+"/"+$data.form+"/"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п.4. Расписания промежуточных аттестаций ГИА(ИА)
+        $tdir = $dirprefix+"/п4 Расписания промежуточных аттестаций, ГИА(ИА)/"+$data.profile+"/"+$data.form+"/"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п5 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ 
+        $tdir = $dirprefix+"/п5 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$data.profile+"/"+$data.form+"/"+$year+"/Зачётные книжки"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п5 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$data.profile+"/"+$data.form+"/"+$year+"/Личные карточки"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п5 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$data.profile+"/"+$data.form+"/"+$year
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п7 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам 
+        $tdir = $dirprefix+"/п7 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$data.form+"/"+$year+"/Дневники практик"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п7 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$data.form+"/"+$year+"/Отчёты"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п7 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$data.form+"/"+$year+"/Аттестации"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
     }
+    # п2 Индивидуальные УП обучающихся
+    $tdir = $dirprefix+"/п2 Индивидуальные УП обучающихся/"+$data.profile
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # n.6. Док-ты и матер. о рез. НИР обуч. (патенты, св-ва, науч. статьи, дипломы выставок, конкурсов) 
+    $tdir = $dirprefix+"/n6 Док-ты и матер. о рез. НИР обуч. (патенты, св-ва, науч. статьи, дипломы выставок, конкурсов)"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п8 Договоры об организации и проведении производственной практики между ВГУ и организациями осуществляющими деятельность по профилю ОП
+    $tdir = $dirprefix+"/п8 Договоры об организации и проведении производственной практики между ВГУ и организациями осуществляющими деятельность по профилю ОП"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # n.9. Науч. докл. об осн. рез. подг. обуч. НКР (дис.)
+    $tdir = $dirprefix+"/n9 Науч. докл. об осн. рез. подг. обуч. НКР (дис.)"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # n10 Протоколы засед ГЭК (папка)
+    $tdir = $dirprefix+"/n10 Протоколы засед ГЭК (папка)"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # п11 Документы предусмотренные ЛНА ВГУ устанавливающие порядок и форму проведения ИА по не имеющим ГА ПА 
+    $tdir = $dirprefix+"/п11 Документы предусмотренные ЛНА ВГУ устанавливающие порядок и форму проведения ИА по не имеющим ГА ПА/"+$data.profile
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п12 Договоры о сетевой форме реализации ОП
+    $tdir = $dirprefix+"/п12 Договоры о сетевой форме реализации ОП"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п13 Штатное расписание и личные дела НПР
+    $tdir = $dirprefix+"/п13 Штатное расписание и личные дела НПР"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п13 Штатное расписание и личные дела НПР/Личные дела"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п14 Индивидуальные планы работы НПР
+    $tdir = $dirprefix+"/п14 Индивидуальные планы работы НПР"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п15 Документы подтверждающие наличие или право использования в ВГУ ЭБС и ЭИОС соответствующих требованиям ФГОС
+    $tdir = $dirprefix+"/п15 Документы подтверждающие наличие или право использования в ВГУ ЭБС и ЭИОС соответствующих требованиям ФГОС"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п16 Документы подтверждающие наличие в ВГУ маттех базы соответствующей требованиям ФГОС
+    $tdir = $dirprefix+"/п16 Документы подтверждающие наличие в ВГУ маттех базы соответствующей требованиям ФГОС"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п17 Договоры о создании в ВГУ лабораторий осуществляющих научную научно-исследовательскую или научно-техническую деятельность
+    $tdir = $dirprefix+"/п17 Договоры о создании в ВГУ лабораторий осуществляющих научную научно-исследовательскую или научно-техническую деятельность"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п18 Договоры о создании ВГУ в научных и иных организациях осуществляющих научно исследовательскую деятельность кафедр осуществляющих образовательную деятельность
+    $tdir = $dirprefix+"/п18 Договоры о создании ВГУ в научных и иных организациях осуществляющих научно исследовательскую деятельность кафедр осуществляющих образовательную деятельность"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п19 Договор о создании в ВГУ кафедр и иных структурных подразделений обеспечивающих практическую подготовку обучающихся на базе иных организаций осуществляющих деятельность по профилю ОП
+    $tdir = $dirprefix+"/п19 Договор о создании в ВГУ кафедр и иных структурных подразделений обеспечивающих практическую подготовку обучающихся на базе иных организаций осуществляющих деятельность по профилю ОП"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # п20 Документы подтверждающие реализацию ОП требующих особого порядка реализации в связи с использованием сведений составляющих гостайну 
+    $tdir = $dirprefix+"/п20 Документы подтверждающие реализацию ОП требующих особого порядка реализации в связи с использованием сведений составляющих гостайну"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п21 Документы подтверждающие общественную аккредитацию ВГУ и ПОА ПА реализуемые в ВГУ
+    $tdir = $dirprefix+"/п21 Документы подтверждающие общественную аккредитацию ВГУ и ПОА ОП реализуемые в ВГУ"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п22 Результаты НОК подготовки обучающихся
+    $tdir = $dirprefix+"/п22 Результаты НОК подготовки обучающихся"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п23 ЛНА
+    $tdir = $dirprefix+"/п23 ЛНА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п24 Распорядительные акты
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О приёме"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/Об обучении по ИУП в том числе ускоренное"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О переводе обучающихся для получения образования по другому профилю специальности или форме обучения"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О зачислении в в качестве экстернов в ВГУ для прохождения промежуточных и ГИА по имеющей ГА ОП лиц обучавшихся по соответствующей ОО не имеющей ГА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О направлении на практику обучающихся"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О допуске обучающихся к ГИА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/Об утверждении состава ГЭК"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/О закреплении за студентами тем ВКР и назначению руководителей и консультантов"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п24 Распорядительные акты/Об отчислении обучающихся по ОП из ВГУ"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+
 }
 
 Function createOrdinator ($data)
@@ -212,8 +357,141 @@ Function createOrdinator ($data)
     $years = 2015..2020
     foreach ($year in $years)
     {
-
+        # п.1. ООП
+        $tdir = $dirprefix+"/п1 ООП/"+$year+"/РПД "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$year+"/РПП "+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$year+"/методические материалы"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$year+"/иные материалы"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$year
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п.2. расписания
+        $tdir = $dirprefix+"/п2 Расписания/"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п.3. Расписания промежуточных аттестаций ГИА(ИА)
+        $tdir = $dirprefix+"/п3 Расписания промежуточных аттестаций, ГИА(ИА)/"+$year
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п4 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ 
+        $tdir = $dirprefix+"/п4 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$year+"/Зачётные книжки"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п4 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$year+"/Личные карточки"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п4 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ПА предусмотренные ЛНА ВГУ/"+$year
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        # п6 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам 
+        $tdir = $dirprefix+"/п6 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$year+"/Дневники практик"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п6 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$year+"/Отчёты"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п6 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$year+"/Аттестационные листы"
+        [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
     }
+    # п5 Индивидуальные УП обучающихся
+    $tdir = $dirprefix+"/п5 Индивидуальные УП обучающихся/"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # n7 Протоколы засед ГЭК (папка)
+    $tdir = $dirprefix+"/n7 Протоколы засед ГЭК (папка)"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # п8 Документы предусмотренные ЛНА ВГУ устанавливающие порядок и форму проведения ИА по не имеющим ГА ПО 
+    $tdir = $dirprefix+"/п8 Документы предусмотренные ЛНА ВГУ устанавливающие порядок и форму проведения ИА по не имеющим ГА ПО/"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    # n9 Договоры об орг и провед практ между ВГУ и орг-и осущ деят-ть по профилю ПО
+    $tdir = $dirprefix+"/n9 Договоры об орг и провед практ между ВГУ и орг-и осущ деят-ть по профилю ПО"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п10 Договоры о сетевой форме реализации ОП
+    $tdir = $dirprefix+"/п10 Договоры о сетевой форме реализации ОП"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п11 Штатное расписание и личные дела НПР
+    $tdir = $dirprefix+"/п11 Штатное расписание и личные дела НПР"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п11 Штатное расписание и личные дела НПР/Личные дела"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п12 Индивидуальные планы работы НПР
+    $tdir = $dirprefix+"/п12 Индивидуальные планы работы НПР"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п13 Документы подтверждающие наличие или право использования в ВГУ ЭБС и ЭИОС соответствующих требованиям ФГОС
+    $tdir = $dirprefix+"/п15 Документы подтверждающие наличие или право использования в ВГУ ЭБС и ЭИОС соответствующих требованиям ФГОС"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п14 Документы подтверждающие наличие в ВГУ маттех базы соответствующей требованиям ФГОС
+    $tdir = $dirprefix+"/п16 Документы подтверждающие наличие в ВГУ маттех базы соответствующей требованиям ФГОС"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п15 Договоры о создании в ВГУ лабораторий осуществляющих научную научно-исследовательскую или научно-техническую деятельность
+    $tdir = $dirprefix+"/п15 Договоры о создании в ВГУ лабораторий осуществляющих научную научно-исследовательскую или научно-техническую деятельность"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п16 Договоры о создании ВГУ в научных и иных организациях осуществляющих научно исследовательскую деятельность кафедр осуществляющих образовательную деятельность
+    $tdir = $dirprefix+"/п16 Договоры о создании ВГУ в научных и иных организациях осуществляющих научно исследовательскую деятельность кафедр осуществляющих образовательную деятельность"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п17 Договор о создании в ВГУ кафедр и иных структурных подразделений обеспечивающих практическую подготовку обучающихся на базе иных организаций осуществляющих деятельность по профилю ОП
+    $tdir = $dirprefix+"/п17 Договор о создании в ВГУ кафедр и иных структурных подразделений обеспечивающих практическую подготовку обучающихся на базе иных организаций осуществляющих деятельность по профилю ОП"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п18 Документы подтверждающие общественную аккредитацию ВГУ и ПОА ПА реализуемые в ВГУ
+    $tdir = $dirprefix+"/п18 Документы подтверждающие общественную аккредитацию ВГУ и ПОА ОП реализуемые в ВГУ"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п19 Результаты НОК подготовки обучающихся
+    $tdir = $dirprefix+"/п19 Результаты НОК подготовки обучающихся"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п20 ЛНА
+    $tdir = $dirprefix+"/п20 ЛНА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    #  п21 Распорядительные акты
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О приёме"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/Об обучении по ИУП в том числе ускоренное"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О переводе обучающихся для получения образования по другому профилю специальности или форме обучения"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О зачислении в в качестве экстернов в ВГУ для прохождения промежуточных и ГИА по имеющей ГА ОП лиц обучавшихся по соответствующей ОО не имеющей ГА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О направлении на практику обучающихся"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О допуске обучающихся к ГИА"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/Об утверждении состава ГЭК"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/О закреплении за студентами тем ВКР и назначению руководителей и консультантов"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+    $tdir = $dirprefix+"/п21 Распорядительные акты/Об отчислении обучающихся по ОП из ВГУ"
+    [void](New-Item -force -itemtype directory $tdir)
+    Set-Acl -Path "$tdir" -AclObject $newAcl
+
 }
 
 Function createHighEdu ($data)
@@ -239,7 +517,7 @@ Function createHighEdu ($data)
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/РПД "+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
         Set-Acl -Path "$tdir" -AclObject $newAcl
-        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/РП модулей "+$data.profile+" "+$year
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/РПП "+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
         Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/методические материалы"+$data.profile+" "+$year
@@ -318,7 +596,7 @@ Function createHighEdu ($data)
     $tdir = $dirprefix+"/п15 Штатное расписание и личные дела НПР"
     [void](New-Item -force -itemtype directory $tdir)
     Set-Acl -Path "$tdir" -AclObject $newAcl
-    $tdir = $dirprefix+"/п16 Штатное расписание и личные дела НПР/Личные дела"
+    $tdir = $dirprefix+"/п15 Штатное расписание и личные дела НПР/Личные дела"
     [void](New-Item -force -itemtype directory $tdir)
     Set-Acl -Path "$tdir" -AclObject $newAcl
     #  п16 Индивидуальные планы работы НПР
