@@ -30,6 +30,8 @@
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year+"/иные материалы"+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
         Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п.2. расписания
         $tdir = $dirprefix+"/п2 Расписания/"+$data.profile+"/"+$year
         [void](New-Item -force -itemtype directory $tdir)
@@ -168,29 +170,6 @@
     Set-Acl -Path "$tdir" -AclObject $newAcl
 }
 
-Function createSpecialist ($data)
-{
-    # общий префикс для всех каталогов
-    $dirprefix = "./Специалитет/"+$data.faculty+"/"+$data.speciality
-    [void](New-Item -force -itemtype directory $dirprefix)
-    
-    # пользователь для установки прав доступа
-    $identity = "sysadmin_lab"
-    # общий объект для раздачи прав на модификацию подкаталогов
-    $newAcl = Get-Acl $dirprefix
-    $fsAList = $identity, "FullControl", "ContainerInherit,ObjectInherit", "InheritOnly", "Allow"
-    $fsa = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
-    $newAcl.SetAccessRule($fsa)
-    # Шаблон команды для расстановки прав
-    # Set-Acl -Path "$tdir" -AclObject $newAcl
-
-    $years = 2015..2020
-    foreach ($year in $years)
-    {
-
-    }
-}
-
 Function createAspirant ($data)
 {
     # общий префикс для всех каталогов
@@ -237,10 +216,10 @@ Function createOrdinator ($data)
     }
 }
 
-Function createBachelor ($data)
+Function createHighEdu ($data)
 {
     # общий префикс для всех каталогов
-    $dirprefix = "./Бакалавриат/"+$data.faculty+"/"+$data.speciality
+    $dirprefix = "./"+$data.level+"/"+$data.faculty+"/"+$data.speciality
     [void](New-Item -force -itemtype directory $dirprefix)
     
     # пользователь для установки прав доступа
@@ -253,7 +232,7 @@ Function createBachelor ($data)
     # Шаблон команды для расстановки прав
     # Set-Acl -Path "$tdir" -AclObject $newAcl
 
-    $years = 2016..2020
+    $years = 2015..2020
     foreach ($year in $years)
     {
         # п.1. ООП
@@ -268,6 +247,8 @@ Function createBachelor ($data)
         Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$data.form+"/"+$year+"/иные материалы"+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
+        Set-Acl -Path "$tdir" -AclObject $newAcl
+        $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year
         Set-Acl -Path "$tdir" -AclObject $newAcl
         # п.2. расписания
         $tdir = $dirprefix+"/п2 Расписания/"+$data.profile+"/"+$data.form+"/"+$year
@@ -410,29 +391,6 @@ Function createBachelor ($data)
     Set-Acl -Path "$tdir" -AclObject $newAcl
 }
 
-Function createMagister ($data)
-{
-    # общий префикс для всех каталогов
-    $dirprefix = "./Специалитет/"+$data.faculty+"/"+$data.speciality
-    [void](New-Item -force -itemtype directory $dirprefix)
-    
-    # пользователь для установки прав доступа
-    $identity = "sysadmin_lab"
-    # общий объект для раздачи прав на модификацию подкаталогов
-    $newAcl = Get-Acl $dirprefix
-    $fsAList = $identity, "FullControl", "ContainerInherit,ObjectInherit", "InheritOnly", "Allow"
-    $fsa = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
-    $newAcl.SetAccessRule($fsa)
-    # Шаблон команды для расстановки прав
-    # Set-Acl -Path "$tdir" -AclObject $newAcl
-
-    $years = 2018..2020
-    foreach ($year in $years)
-    {
-
-    }
-}
-
 Function logRecord($data)
 {
     write-output($data)
@@ -450,7 +408,7 @@ foreach ($record in $CoursesData)
             break
         }
         'Специалитет' {
-            createSpecialist($record)
+            createHighEdu($record)
             break
         }
         'Аспирантура' {
@@ -462,29 +420,14 @@ foreach ($record in $CoursesData)
             break
         }
         'Бакалавриат' {
-            createBachelor($record)
+            createHighEdu($record)
             break
         }
         'Магистратура' {
-            createMagister($record)
+            createHighEdu($record)
             break
         }
         default { logRecord($record) }
     }
 }
-
-## $identity = "sysadmin_lab"
-# Создание записи в ACL для модификации содержимого каталога
-## $newAcl2 = Get-Acl DIR1
-## $fsAList = $identity, "Modify", "None", "NoPropagateInherit", "Allow"
-## $fsa2 = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
-## $newAcl2.SetAccessRule($fsa2)
-## Set-Acl -Path "DIR1" -AclObject $newAcl2
-# Создание записи в acl для доступ ко всему созданому в каталоге содержимому
-# (наследуемые права для всех объектов в папке)
-# $newAcl = Get-Acl DIR1
-# $fsAList = $identity, "FullControl", "ContainerInherit,ObjectInherit", "InheritOnly", "Allow"
-# $fsa = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
-# $newAcl.SetAccessRule($fsa)
-# Set-Acl -Path "DIR1" -AclObject $newAcl
 
