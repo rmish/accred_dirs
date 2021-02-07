@@ -1,5 +1,54 @@
+Function createSPO ($data)
+{
+    write-host ("СПО")
+}
+
+Function createSpecialist ($data)
+{
+    write-host ("Специалитет")
+}
+
+Function createAspirat ($data)
+{
+    Write-host("Аспирантура")
+}
+
+Function createOrdinator ($data)
+{
+    write-host("Ординатура")
+}
+
+Function createBachelor ($data)
+{
+    write-host("Бакалавриат")
+}
+
+Function createMagister ($data)
+{
+    write-host("Магистратура")
+}
+
+Function logRecord($data)
+{
+    write-host($data)
+}
+
+
+$CoursesData = Import-Csv -Path "./regdata/test_reestr.csv" -Delimiter ";"
+
+foreach ($record in $CourseData)
+{
+    switch ($record.level)
+        "СПО" {}
+        "Специалитет" {}
+        "Аспирантура" {}
+        "Балакалвират" {}
+        "Магистратура" {}
+        default { logRecord($record) }
+}
+
 #[void](New-Item -itemtype directory "DIR1")
-[void](New-Item -itemtype directory "DIR1/DIR2")
+#[void](New-Item -itemtype directory "DIR1/DIR2")
 $identity = "sysadmin_lab"
 # Создание записи в ACL для модификации содержимого каталога
  $newAcl2 = Get-Acl DIR1
