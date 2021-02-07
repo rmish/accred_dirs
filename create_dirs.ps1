@@ -2,14 +2,17 @@
 {
     # общий префикс для всех каталогов
     $dirprefix = "./СПО/"+$data.faculty+"/"+$data.speciality
+    [void](New-Item -force -itemtype directory $dirprefix)
     
+    # пользователь для установки прав доступа
+    $identity = "sysadmin_lab"
     # общий объект для раздачи прав на модификацию подкаталогов
     $newAcl = Get-Acl $dirprefix
     $fsAList = $identity, "FullControl", "ContainerInherit,ObjectInherit", "InheritOnly", "Allow"
     $fsa = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
     $newAcl.SetAccessRule($fsa)
     # Шаблон команды для расстановки прав
-    # #Set-Acl -Path $tdir -AclObject $newAcl
+    # Set-Acl -Path "$tdir" -AclObject $newAcl
 
     $years = 2015..2020
     foreach ($year in $years)
@@ -17,48 +20,50 @@
         # п.1. ООП
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year+"/РПД "+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year+"/РП модулей "+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year+"/методические материалы"+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п1 ООП/"+$data.profile+"/"+$year+"/иные материалы"+$data.profile+" "+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п.2. расписания
         $tdir = $dirprefix+"/п2 Расписания/"+$data.profile+"/"+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п.3. Расписания промежуточных аттестаций ГИА(ИА)
         $tdir = $dirprefix+"/п3 Расписания промежуточных аттестаций, ГИА(ИА)/"+$data.profile+"/"+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п.5. Программы практик
         $tdir = $dirprefix+"/п5 Программы практик/"+$data.profile+"/"+$year
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п7 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ОП предусмотренные ЛНА ВГУ 
         $tdir = $dirprefix+"/п7 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ОП предусмотренные ЛНА ВГУ/"+$data.profile+"/"+$year+"/Зачётные книжки"
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п7 Документы содержащие информацию об индивидуальном учёте результатов освоения обучающимися ОП предусмотренные ЛНА ВГУ/"+$data.profile+"/"+$year+"/Личные карточки"
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         # п8 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам 
         $tdir = $dirprefix+"/п8 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$year+"/Дневники практик"
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п8 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$year+"/Отчёты"
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п8 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$year+"/Аттестационные листы"
         [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        Set-Acl -Path "$tdir" -AclObject $newAcl
         $tdir = $dirprefix+"/п8 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам/"+$data.profile+"/"+$year+"/Характеристики обучающегося по практике"
-        [void](New-Item -force -itemtype directory $tdir)
-        #Set-Acl -Path $tdir -AclObject $newAcl
+        #[void](New-Item -force -itemtype directory $tdir)
+        #write-output $tdir
+        New-Item -force -itemtype directory $tdir
+        Set-Acl -Path "$tdir" -AclObject $newAcl
     }
     # п.4. Программа ГИА требования ВКР критерии оценк 
     $tdir = $dirprefix+"/п4 Программа ГИА требования ВКР критерии оценк/"
@@ -205,12 +210,12 @@ foreach ($record in $CoursesData)
 ## $fsAList = $identity, "Modify", "None", "NoPropagateInherit", "Allow"
 ## $fsa2 = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
 ## $newAcl2.SetAccessRule($fsa2)
-## #Set-Acl -Path "DIR1" -AclObject $newAcl2
+## Set-Acl -Path "DIR1" -AclObject $newAcl2
 # Создание записи в acl для доступ ко всему созданому в каталоге содержимому
 # (наследуемые права для всех объектов в папке)
 # $newAcl = Get-Acl DIR1
 # $fsAList = $identity, "FullControl", "ContainerInherit,ObjectInherit", "InheritOnly", "Allow"
 # $fsa = New-Object -TypeName System.Security.AccessControl.FileSystemAccessRule -ArgumentList $fsAList
 # $newAcl.SetAccessRule($fsa)
-# #Set-Acl -Path "DIR1" -AclObject $newAcl
+# Set-Acl -Path "DIR1" -AclObject $newAcl
 
