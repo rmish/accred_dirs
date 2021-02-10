@@ -1,4 +1,5 @@
 ﻿Function getIdentity ($faculty)
+{
     switch ($faculty)
     {  
         'Фармацевтический' {return "a_phar"}
@@ -9,6 +10,7 @@
         'Математический' {return "a_math"}
         'ПММ' {return "a_pmm"}
     }
+}
 
 Function createSPO ($data)
 {
@@ -78,7 +80,7 @@ Function createSPO ($data)
         $tdir = $dirprefix+'\п08 Отчётность обучающихся по практикам оценочные материалы и результаты аттестации по практикам\'+$data.profile+'\'+$year+'\Характеристики обучающегося по практике'
         #[void](New-Item -force -itemtype directory -Path "$tdir")
         #write-output $tdir
-        New-Item -force -itemtype directory -Path "$tdir"
+        [void](New-Item -force -itemtype directory -Path "$tdir")
         Set-Acl -LiteralPath "$tdir" -AclObject $newAcl
     }
     # п.4. Программа ГИА требования ВКР критерии оценк 
