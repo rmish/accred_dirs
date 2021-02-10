@@ -1,7 +1,7 @@
 ﻿Function createSPO ($data)
 {
     # общий префикс для всех каталогов
-    $dirprefix = '\\?\c:\Temp\accred\accred_dirs\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
+    $dirprefix = '\\?\UNC\lambda.main.vsu.ru\a2021\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
@@ -173,7 +173,7 @@
 Function createAspirant ($data)
 {
     # общий префикс для всех каталогов
-    $dirprefix = '\\?\c:\Temp\accred\accred_dirs\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
+    $dirprefix = '\\?\UNC\lambda.main.vsu.ru\a2021\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
@@ -341,7 +341,7 @@ Function createAspirant ($data)
 Function createOrdinator ($data)
 {
     # общий префикс для всех каталогов
-    $dirprefix = '\\?\c:\Temp\accred\accred_dirs\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
+    $dirprefix = '\\?\UNC\lambda.main.vsu.ru\a2021\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
@@ -497,7 +497,7 @@ Function createOrdinator ($data)
 Function createHighEdu ($data)
 {
     # общий префикс для всех каталогов
-    $dirprefix = '\\?\c:\Temp\accred\accred_dirs\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
+    $dirprefix = '\\?\UNC\lambda.main.vsu.ru\a2021\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
