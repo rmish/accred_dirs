@@ -1,11 +1,23 @@
-﻿Function createSPO ($data)
+﻿Function getIdentity ($faculty)
+    switch ($faculty)
+    {  
+        'Фармацевтический' {return "a_phar"}
+        'ФиПси' {return "a_phy"}
+        'РГФ' {return "a_rgf"}
+        'ФКН' {return "a_fkn"}
+        'ГГиТ'  {return "a_geog"}
+        'Математический' {return "a_math"}
+        'ПММ' {return "a_pmm"}
+    }
+
+Function createSPO ($data)
 {
     # общий префикс для всех каталогов
     $dirprefix = '\\?\UNC\lambda.main.vsu.ru\a2021\'+$data.faculty+'\'+$data.level+'\'+$data.speciality
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
-    $identity = 'moose'
+    $identity = getIdentity($data.faculty)
     # общий объект для раздачи прав на модификацию подкаталогов
     $newAcl = Get-Acl $dirprefix
     $fsAList = $identity, 'FullControl', 'ContainerInherit,ObjectInherit', 'InheritOnly', 'Allow'
@@ -177,7 +189,7 @@ Function createAspirant ($data)
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
-    $identity = 'moose'
+    $identity = getIdentity($data.faculty)
     # общий объект для раздачи прав на модификацию подкаталогов
     $newAcl = Get-Acl $dirprefix
     $fsAList = $identity, 'FullControl', 'ContainerInherit,ObjectInherit', 'InheritOnly', 'Allow'
@@ -345,7 +357,7 @@ Function createOrdinator ($data)
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
-    $identity = 'moose'
+    $identity = getIdentity($data.faculty)
     # общий объект для раздачи прав на модификацию подкаталогов
     $newAcl = Get-Acl $dirprefix
     $fsAList = $identity, 'FullControl', 'ContainerInherit,ObjectInherit', 'InheritOnly', 'Allow'
@@ -501,7 +513,7 @@ Function createHighEdu ($data)
     [void](New-Item -force -itemtype directory -Path "$dirprefix")
     
     # пользователь для установки прав доступа
-    $identity = 'moose'
+    $identity = getIdentity($data.faculty)
     # общий объект для раздачи прав на модификацию подкаталогов
     $newAcl = Get-Acl $dirprefix
     $fsAList = $identity, 'FullControl', 'ContainerInherit,ObjectInherit', 'InheritOnly', 'Allow'
